@@ -19,7 +19,8 @@ namespace Desk_Cleaner
         {
             try
             {
-                string watchpath = @"C:\Users\User\Downloads";
+                EventHandler.setState = true;
+                string watchpath = @"C:\Users\User\Downloads\";
                 FileSystemWatcher watcher = new FileSystemWatcher
                 {
                     Path = watchpath
@@ -39,26 +40,35 @@ namespace Desk_Cleaner
 
         private void Watcher_Renamed(object sender, RenamedEventArgs e)
         {
-            string watchpath = @"C:\Users\User\Downloads";
-            string destination_path = @"C:\Users\User\Desktop\folder1";
+            string watchpath = @"C:\Users\User\Downloads\";
+            string destination_path = @"C:\Users\User\Desktop\folder1\";
 
             EventHandler.On_modified(watchpath, destination_path);
         }
 
         private void Watcher_Created(object sender, FileSystemEventArgs e)
         {
-            string watchpath = @"C:\Users\User\Downloads";
-            string destination_path = @"C:\Users\User\Desktop\folder1";
+            string watchpath = @"C:\Users\User\Downloads\";
+            string destination_path = @"C:\Users\User\Desktop\folder1\";
 
             EventHandler.On_modified(watchpath, destination_path);
         }
 
         private void Watcher_Changed(object sender, FileSystemEventArgs e)
         {
-            string watchpath = @"C:\Users\User\Downloads";
-            string destination_path = @"C:\Users\User\Desktop\folder1";
+            string watchpath = @"C:\Users\User\Downloads\";
+            string destination_path = @"C:\Users\User\Desktop\folder1\";
 
             EventHandler.On_modified(watchpath, destination_path);
+        }
+
+        private void btn_stop_Click(object sender, EventArgs e)
+        {
+            EventHandler.setState = false;
+        }
+
+        private void btnfile_Click(object sender, EventArgs e)
+        {
         }
     }
 }
